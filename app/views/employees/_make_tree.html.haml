@@ -6,7 +6,4 @@
       %span= c.phone
       %br
       %span= c.email
-      - if current_user.email == c.email
-        %br
-        %span= "logged_in user"
       = render :partial => "employees/make_tree", :locals => {child: c.get_children}
