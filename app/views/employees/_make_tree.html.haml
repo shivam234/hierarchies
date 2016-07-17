@@ -1,0 +1,12 @@
+%ul.hidden
+  -child.each do |c|
+    %li{class:("logged_in_user" if current_user.email == c.email)}
+      %span{style: 'font-weight: bold; color: #000;'}= c.name
+      %br
+      %span= c.phone
+      %br
+      %span= c.email
+      - if current_user.email == c.email
+        %br
+        %span= "logged_in user"
+      = render :partial => "employees/make_tree", :locals => {child: c.get_children}

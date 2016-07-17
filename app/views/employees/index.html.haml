@@ -1,0 +1,17 @@
+%p#notice= notice
+%h1 Listing Employees
+= link_to "Create Employee",new_employee_path
+#trees
+  %ul.hidden#tree
+    %li{class:("logged_in_user" if current_user.email == @top_employee.email)}
+      %span{style: 'font-weight: bold; color: #000;'}= @top_employee.name
+      %br
+      %span= @top_employee.phone
+      %br
+      %span= @top_employee.email
+      = render :partial => "make_tree", :locals => {child: @child}
+
+:javascript
+    $(document).on("ready",function(){
+      $("#tree").jOrgChart({chartElement : '#trees'});
+    });

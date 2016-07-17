@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @employee.name
+%p
+  %strong Manager:
+  = @employee.manager_id
+%p
+  %strong Phone:
+  = @employee.phone
+%p
+  %strong Email:
+  = @employee.email
+= link_to 'Edit', edit_employee_path(@employee)
+|
+\#{link_to 'Back', employees_path}
